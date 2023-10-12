@@ -9,15 +9,13 @@ Button {
     id: help_btn
 
     background: Rectangle {
-        width: 50
-        height: 30
-
-
-
+        border.color: "#fff5ee"
+        border.width: 2
+        radius: 15
         gradient: Gradient {
             orientation: Gradient.Vertical
-            GradientStop { position: 0.9; color: help_btn.pressed ? "#434343" : "#000000" }
-            GradientStop { position: 0.6; color: "#434343" }
+            GradientStop { position: 0.9; color: help_btn.pressed ? "#132272" : "#061149" }
+            GradientStop { position: 0.6; color: "#132272" }
         }
     }
     contentItem: Text {
@@ -26,6 +24,6 @@ Button {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
 
-        color: help_btn.down ? "#7fff00" : "#fff5ee"
+        color: help_btn.down ? "#EE9C4B" : "#fff5ee"
     }
 }

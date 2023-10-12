@@ -5,6 +5,8 @@ import QtCharts 2.3
 import QtQuick.Layouts 1.2
 import QtGraphicalEffects 1.12
 
+import QuestGame 1.0
+
 Window {
     id: mainWindow
     visible: true

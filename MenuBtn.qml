@@ -6,23 +6,24 @@ import QtQuick.Layouts 1.2
 import QtGraphicalEffects 1.12
 
 Button {
-    id: myBtn
+    id: menu_btn
 
     background: Rectangle {
-
-
+        border.color: "#fff5ee"
+        border.width: 2
+        radius: 10
         gradient: Gradient {
             orientation: Gradient.Vertical
-            GradientStop { position: 0.9; color: myBtn.pressed ? "#434343" : "#000000" }
-            GradientStop { position: 0.6; color: "#434343" }
+            GradientStop { position: 0.9; color: menu_btn.pressed ? "#132272" : "#061149" }
+            GradientStop { position: 0.6; color: "#132272" }
         }
     }
     contentItem: Text {
         font.pixelSize: 20
-        text: myBtn.text
+        text: menu_btn.text
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
 
-        color: myBtn.down ? "#7fff00" : "#fff5ee"
+        color: menu_btn.down ? "#EE9C4B" : "#fff5ee"
     }
 }

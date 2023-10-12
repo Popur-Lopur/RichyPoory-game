@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/reset.svg</file>
+        <file>images/phone.svg</file>
+        <file>images/chance.svg</file>
+        <file>images/money.gif</file>
+    </qresource>
+</RCC>

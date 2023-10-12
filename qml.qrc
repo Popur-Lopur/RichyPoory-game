@@ -9,5 +9,7 @@
         <file>PlayResultTable.qml</file>
         <file>HelpBtn.qml</file>
         <file>PlayHelpPanel.qml</file>
+        <file>PlayQuestLabel.qml</file>
+        <file>PlayMoneyGif.qml</file>
     </qresource>
 </RCC>

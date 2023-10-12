@@ -13,8 +13,8 @@ Page {
         anchors.fill: parent
         gradient: Gradient {
             orientation: Gradient.Vertical
-            GradientStop { position: 0.0; color: "#2B4648" }
-            GradientStop { position: 1.0; color: "#2C5D61" }
+            GradientStop { position: 0.0; color: "#132272" }
+            GradientStop { position: 1.0; color: "#4B5DBE" }
         }
     }
 
@@ -22,12 +22,13 @@ Page {
         id: play_panel_answers
         anchors.bottom: parent.bottom
         anchors.left: parent.left
+        anchors.margins: 5
     }
 
-    PlayResultTable {
-        id: play_result_table
-        anchors.right: parent.right
-        anchors.top: parent.top
+    PlayQuestLabel {
+        id: play_quest_label
+        anchors.bottom:play_panel_answers.top
+        anchors.horizontalCenter: play_panel_answers.horizontalCenter
         anchors.margins: 5
 
     }
@@ -36,8 +37,25 @@ Page {
         id: play_help_panel
         anchors.top: parent.top
         anchors.right: parent.right
+        anchors.margins: 5
+    }
+
+    PlayResultTable {
+        id: play_result_table
+        anchors.top: play_help_panel.bottom
+        anchors.right: parent.right
+        anchors.margins: 5
 
     }
+
+    PlayMoneyGif {
+        id: play_money_gif
+        anchors.top: play_result_table.bottom
+        anchors.right: parent.right
+    }
+
+
+
 
 
 }
