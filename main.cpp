@@ -29,25 +29,6 @@
 
 int main(int argc, char *argv[])
 {
-//    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
-//    QGuiApplication app(argc, argv);
-
-//    qmlRegisterType<LoadQuestions>("com.myapp.loadquestions", 1, 0, "LoadQuestions");
-
-//    LoadQuestions loadQuestions;
-
-//    QQmlApplicationEngine engine;
-
-//    engine.rootContext()->setContextProperty(QStringLiteral("loadQuestions"), &loadQuestions);
-
-//    const QUrl url(QStringLiteral("qrc:/main.qml"));
-//    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-//                     &app, [url](QObject *obj, const QUrl &objUrl) {
-//        if (!obj && url == objUrl)
-//            QCoreApplication::exit(-1);
-//    }, Qt::QueuedConnection);
-//    engine.load(url);
 
     QApplication app(argc, argv);
 
@@ -56,7 +37,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<QuestGame>("QuestGame", 1, 0, "QuestGame");
 
     QuestGame questgame;
-    engine.rootContext()->setContextProperty("logview", &questgame);
+    engine.rootContext()->setContextProperty("questgame", &questgame);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
 

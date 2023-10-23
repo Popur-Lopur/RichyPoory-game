@@ -23,7 +23,6 @@ Button {
         text: help_btn.text
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-
         color: help_btn.down ? "#EE9C4B" : "#fff5ee"
     }
 }

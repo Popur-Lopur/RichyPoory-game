@@ -10,28 +10,39 @@ import QuestGame 1.0
 Window {
     id: mainWindow
     visible: true
-    width: 1000
-    height: 600
-    title: qsTr("Rich-Poor")
+    width: 731
+    height: 699
+    title: qsTr("Richy-Poory")
     color: "#DCB089"
-
-
-
-
-    StartLabel {
-        id: start_label
-        anchors.top: parent.top
-        anchors.horizontalCenter: parent.horizontalCenter
-
-    }
-
+    Image {
+            id: backgroundImage
+            source: "images/fon.png"  // замените этот путь на путь к вашему изображению
+            anchors.fill: parent
+            fillMode: Image.PreserveAspectCrop
+        }
 
 
     StartPanel {
         id: start_panel
-        anchors.horizontalCenter: start_label.horizontalCenter
-        anchors.top: start_label.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
     }
+
+    StartGifSkull {
+       id: start_gif_skull_right
+       anchors.right: parent.right
+       anchors.bottom: parent.bottom
+       anchors.margins: 15
+       gifPath: "images/skull.gif"
+   }
+
+    StartGifSkull {
+       id: start_gif_skull_left
+       anchors.left: parent.left
+       anchors.bottom: parent.bottom
+       anchors.margins: 15
+       gifPath: "images/skull.gif"
+   }
 
     StackView {
             id: stackView

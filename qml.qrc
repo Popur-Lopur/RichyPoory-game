@@ -3,7 +3,6 @@
         <file>main.qml</file>
         <file>MenuBtn.qml</file>
         <file>StartPanel.qml</file>
-        <file>StartLabel.qml</file>
         <file>PlayScreen.qml</file>
         <file>PlayAnswerPanel.qml</file>
         <file>PlayResultTable.qml</file>
@@ -11,5 +10,10 @@
         <file>PlayHelpPanel.qml</file>
         <file>PlayQuestLabel.qml</file>
         <file>PlayMoneyGif.qml</file>
+        <file>PlayBtn.qml</file>
+        <file>StartGifSkull.qml</file>
+        <file>PlayRectResult.qml</file>
+        <file>RulesScreen.qml</file>
+        <file>GameOverScreen.qml</file>
     </qresource>
 </RCC>

@@ -11,7 +11,6 @@ Rectangle {
     width: 290
     height: 60
     color: "transparent"
-    border.color: "black"
 
     property int high: 40
     property int fat: 60

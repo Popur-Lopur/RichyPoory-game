@@ -5,6 +5,7 @@ import QtCharts 2.3
 import QtQuick.Layouts 1.2
 import QtGraphicalEffects 1.12
 
+import QuestGame 1.0
 
 Rectangle {
 
@@ -13,153 +14,77 @@ Rectangle {
     height: 140
     color: "transparent"
     radius: 5
-    border.color: "black"
+
 
     property int high: 65
     property int fat: 345
     property int size: 20
 
-    MenuBtn {
-        id: btn_answer1
+    PlayBtn {
+        id: btn_1answer
         width: fat
         height: high
         anchors.margins: 3
         anchors.top: panel_answers.top
         anchors.left: panel_answers.left
-        onClicked: {
+        checkTarget: 1
+        textForTarget: "A"
+    }
 
-        }
-
-
-
-        Text {
-            id: first_answer1
-
-                text: "  A: "
-                anchors.left: btn_answer1.left
-                anchors.verticalCenter: btn_answer1.verticalCenter
-                color: "#EE9C4B"
-                font.pixelSize: size
-
-            }
-
-        Text {
-            id: first_answer2
-                text: "answer"
-                font.pixelSize: size
-                anchors.left: first_answer1.right
-                anchors.verticalCenter: btn_answer1.verticalCenter
-                color: "white"
-
-            }
-        }
-
-
-    MenuBtn {
-        id: btn_answer2
+    PlayBtn {
+        id: btn_2answer
         width: fat
         height: high
         anchors.margins: 3
         anchors.top: panel_answers.top
         anchors.right: panel_answers.right
-        onClicked: {
+        checkTarget: 2
+        textForTarget: "B"
+    }
 
-        }
-
-
-
-        Text {
-            id: second_answer1
-                text: "  B: "
-                anchors.left: btn_answer2.left
-                anchors.verticalCenter: btn_answer2.verticalCenter
-                color: "#EE9C4B"
-                font.pixelSize: size
-
-            }
-
-        Text {
-            id: second_answer2
-                text: "answer"
-                font.pixelSize: size
-                anchors.left: second_answer1.right
-                anchors.verticalCenter: btn_answer2.verticalCenter
-                color: "white"
-
-            }
-        }
-
-
-    MenuBtn {
-        id: btn_answer3
+    PlayBtn {
+        id: btn_3answer
         width: fat
         height: high
         anchors.margins: 3
         anchors.bottom: panel_answers.bottom
         anchors.left: panel_answers.left
-        onClicked: {
+        checkTarget: 3
+        textForTarget: "C"
+    }
 
-        }
-
-
-
-        Text {
-            id: third_answer1
-                text: "  C: "
-                anchors.left: btn_answer3.left
-                anchors.verticalCenter: btn_answer3.verticalCenter
-                color: "#EE9C4B"
-                font.pixelSize: size
-
-            }
-
-        Text {
-            id: third_answer2
-                text: "answer"
-                font.pixelSize: size
-                anchors.left: third_answer1.right
-                anchors.verticalCenter: btn_answer3.verticalCenter
-                color: "white"
-
-            }
-        }
-
-
-    MenuBtn {
-        id: btn_answer4
+    PlayBtn {
+        id: btn_4answer
         width: fat
-        height: high       
+        height: high
         anchors.margins: 3
         anchors.bottom: panel_answers.bottom
         anchors.right: panel_answers.right
-        onClicked: {
+        checkTarget: 4
+        textForTarget: "D"
+    }
 
+    Connections {
+        target: questgame
+        onAnswer1Changed: {
+            btn_1answer.textForAnswer = answer1
         }
-
-
-
-        Text {
-            id: four_answer1
-                text: "  D: "
-                anchors.left: btn_answer4.left
-                anchors.verticalCenter: btn_answer4.verticalCenter
-                color: "#EE9C4B"
-                font.pixelSize: size
-
-            }
-
-        Text {
-            id: four_answer2
-                text: "answer"
-
-                font.pixelSize: size
-                anchors.left: four_answer1.right
-                anchors.verticalCenter: btn_answer4.verticalCenter
-                color: "white"
-
-
-            }
+        onAnswer2Changed: {
+            btn_2answer.textForAnswer = answer2
+        }
+        onAnswer3Changed: {
+            btn_3answer.textForAnswer = answer3
+        }
+        onAnswer4Changed: {
+            btn_4answer.textForAnswer = answer4
+        }
+        onTargetChanged: {
+            btn_1answer.targets = target
+            btn_2answer.targets = target
+            btn_3answer.targets = target
+            btn_4answer.targets = target
         }
     }
+}
 
 

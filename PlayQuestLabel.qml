@@ -9,7 +9,7 @@ import QtGraphicalEffects 1.12
 Rectangle {
     id: rect_quest
     width: 600
-    height: 110
+    height: 90
     border.color: "#fff5ee"
     border.width: 3
     radius: 10
@@ -23,9 +23,22 @@ Rectangle {
     Text {
         id: text_question
         anchors.centerIn: parent
-        text: "This is question for answer?"
         font.pixelSize: 20
         color: "#fff5ee"
+        width: parent.width
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        wrapMode: Text.Wrap
+
+
+
     }
 
+    Connections {
+            target: questgame
+            onQuestionChanged: {
+                text_question.text = question
+            }
+
+        }
 }

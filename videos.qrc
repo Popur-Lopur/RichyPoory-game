@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>videos/bones.mov</file>
+    </qresource>
+</RCC>

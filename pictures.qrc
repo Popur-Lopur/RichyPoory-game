@@ -4,5 +4,10 @@
         <file>images/phone.svg</file>
         <file>images/chance.svg</file>
         <file>images/money.gif</file>
+        <file>images/cat.gif</file>
+        <file>images/skull.gif</file>
+        <file>images/win.gif</file>
+        <file>images/fon.png</file>
+        <file>images/gameover.gif</file>
     </qresource>
 </RCC>

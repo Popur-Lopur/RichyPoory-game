@@ -7,8 +7,8 @@ import QtGraphicalEffects 1.12
 
 Page {
     visible: true
-    width: 1000
-    height: 600
+    width: 731
+    height: 699
     background: Rectangle {
         anchors.fill: parent
         gradient: Gradient {
@@ -21,7 +21,7 @@ Page {
     PlayAnswerPanel {
         id: play_panel_answers
         anchors.bottom: parent.bottom
-        anchors.left: parent.left
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.margins: 5
     }
 
@@ -36,27 +36,17 @@ Page {
     PlayHelpPanel {
         id: play_help_panel
         anchors.top: parent.top
-        anchors.right: parent.right
+        anchors.horizontalCenter: play_result_table.horizontalCenter
         anchors.margins: 5
     }
 
     PlayResultTable {
         id: play_result_table
         anchors.top: play_help_panel.bottom
-        anchors.right: parent.right
+        anchors.horizontalCenter: play_quest_label.horizontalCenter
         anchors.margins: 5
 
     }
-
-    PlayMoneyGif {
-        id: play_money_gif
-        anchors.top: play_result_table.bottom
-        anchors.right: parent.right
-    }
-
-
-
-
 
 }
 

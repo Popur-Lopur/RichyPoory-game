@@ -12,9 +12,9 @@ QuestGame::QuestGame(int questId, const QString& quest, const QVector<QString>& 
 
 }
 
-QVector<QuestGame*>  QuestGame::SelectMod(const QString &mod)
+QVector<QuestGame*>  QuestGame::selectMod(const QString &mod)
 {
-    setlocale(LC_ALL, "rus");
+//    setlocale(LC_ALL, "rus");
     // вектор объектов вопросов и их составляющих
     QVector<QuestGame*> questions;
 
@@ -40,6 +40,8 @@ QVector<QuestGame*>  QuestGame::SelectMod(const QString &mod)
         QVector<QString> ans { query.value(2).toString(), query.value(3).toString(),
                     query.value(4).toString(), query.value(5).toString() };
         int ansTrg = query.value(6).toInt();
+
+
         questions.push_back(new QuestGame(questId,quest,ans,ansTrg));
     }
 
@@ -64,17 +66,57 @@ QVector<QuestGame*>  QuestGame::SelectMod(const QString &mod)
 
 
 // Объединение всех модов в одну структуру вопросов
-void QuestGame::TogetherMod()
+void QuestGame::togetherMod()
 {
     allQuestions.clear();  // очищаем вектор перед заполнением
 
-    QVector<QuestGame*> easyQuestions = SelectMod("easy");
-    QVector<QuestGame*> normalQuestions = SelectMod("normal");
-    QVector<QuestGame*> hardQuestions = SelectMod("hard");
+    QVector<QuestGame*> easyQuestions = selectMod("easy");
+    QVector<QuestGame*> normalQuestions = selectMod("normal");
+    QVector<QuestGame*> hardQuestions = selectMod("hard");
 
     allQuestions.reserve( easyQuestions.size() + normalQuestions.size() + hardQuestions.size() );
 
     allQuestions.append(easyQuestions);
     allQuestions.append(normalQuestions);
     allQuestions.append(hardQuestions);
+
+
+}
+
+void QuestGame::nextQuestion()
+{
+    if (currentQuestionIndex < allQuestions.size())
+       {
+           QuestGame* currentQuest = allQuestions[currentQuestionIndex];
+
+           qDebug() << currentQuest->question;
+           qDebug() << currentQuest->answers[0];
+
+           emit questionChanged(currentQuest->question);
+           emit answer1Changed(currentQuest->answers[0]);
+           emit answer2Changed(currentQuest->answers[1]);
+           emit answer3Changed(currentQuest->answers[2]);
+           emit answer4Changed(currentQuest->answers[3]);
+
+           currentQuestionIndex++;
+
+    }
+}
+
+void QuestGame::checkTarget()
+{
+    QuestGame* currentTarget = allQuestions[currentTargetIndex];
+    emit targetChanged(currentTarget->answerTarget);
+    currentTargetIndex++;
+}
+
+void QuestGame::numberRect()
+{
+    rectangleIndex++;
+    emit rectangleIndexChanged(rectangleIndex);
+}
+
+void QuestGame::newGameIndex()
+{
+    currentQuestionIndex = 0;
 }
