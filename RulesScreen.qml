@@ -142,13 +142,13 @@ Page {
         anchors.margins: 5
 
         onClicked: {
-            if(stackView.depth > 0) {
-                    stackView.pop();
-                }
+
             stackView.push("PlayScreen.qml");
             questgame.togetherMod();
-            questgame.numberRect();
-            questgame.nextQuestion();
+            questgame.newGameNumberRect();
+            questgame.newGameIndex();
+            questgame.newGameCheckTarget();
+
         }
     }
 }

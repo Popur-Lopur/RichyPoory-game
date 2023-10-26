@@ -7,6 +7,7 @@ import QtGraphicalEffects 1.12
 
 import QuestGame 1.0
 
+
 Window {
     id: mainWindow
     visible: true
@@ -48,7 +49,6 @@ Window {
             id: stackView
             initialItem: Item { }
         }
-
 }
 
 

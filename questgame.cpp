@@ -14,7 +14,6 @@ QuestGame::QuestGame(int questId, const QString& quest, const QVector<QString>& 
 
 QVector<QuestGame*>  QuestGame::selectMod(const QString &mod)
 {
-//    setlocale(LC_ALL, "rus");
     // вектор объектов вопросов и их составляющих
     QVector<QuestGame*> questions;
 
@@ -115,8 +114,61 @@ void QuestGame::numberRect()
     rectangleIndex++;
     emit rectangleIndexChanged(rectangleIndex);
 }
-
+// сброс индекса для возобновления сессии чтобы он не увеличивался бесконечно
 void QuestGame::newGameIndex()
 {
     currentQuestionIndex = 0;
+    if (currentQuestionIndex < allQuestions.size())
+       {
+           QuestGame* currentQuest = allQuestions[currentQuestionIndex];
+
+           qDebug() << currentQuest->question;
+           qDebug() << currentQuest->answers[0];
+
+           emit questionChanged(currentQuest->question);
+           emit answer1Changed(currentQuest->answers[0]);
+           emit answer2Changed(currentQuest->answers[1]);
+           emit answer3Changed(currentQuest->answers[2]);
+           emit answer4Changed(currentQuest->answers[3]);
+
+           currentQuestionIndex++;
+
+    }
 }
+// сброс индекса для возобновления сессии чтобы он не увеличивался бесконечно
+void QuestGame::newGameNumberRect()
+{
+    rectangleIndex = 0;
+    rectangleIndex++;
+    emit rectangleIndexChanged(rectangleIndex);
+}
+// сброс индекса для возобновления сессии чтобы он не увеличивался бесконечно
+void QuestGame::newGameCheckTarget()
+{
+    QuestGame* currentTarget = allQuestions[currentTargetIndex];
+    emit targetChanged(currentTarget->answerTarget);
+    currentTargetIndex = 0;
+}
+
+// 50/50 подсказка реализация
+void QuestGame::viewTarget()
+{
+    QuestGame* currentTarget = allQuestions[currentTargetIndex];
+    emit targetChanged(currentTarget->answerTarget);
+    qDebug() << currentTarget->answerTarget;
+    QVector<int> numbers = {1,2,3,4} ;
+
+    //Удаляет цифру правильного таргета и создает рандомный вектор из остатка
+    numbers.erase(std::remove(numbers.begin(), numbers.end(), currentTarget->answerTarget), numbers.end());
+    std::default_random_engine rng(std::chrono::system_clock::now().time_since_epoch().count());
+    std::shuffle(std::begin(numbers), std::end(numbers), rng);
+    numberFirst = numbers[0];
+    numberSecond = numbers[1];
+
+    emit number1Changed(numberFirst);
+    emit number2Changed(numberSecond);
+    qDebug() << numbers;
+
+}
+
+

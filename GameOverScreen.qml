@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.2
 import QtGraphicalEffects 1.12
 
 Page {
+
     visible: true
     width: 731
     height: 699
@@ -26,14 +27,13 @@ Page {
             width: 140
             height: 50
             onClicked: {
-                if(stackView.depth > 0) {
-                        stackView.pop();
-                    }
-                stackView.clear()
+
                 stackView.push("PlayScreen.qml");
                 questgame.togetherMod();
-                questgame.numberRect();
-                questgame.nextQuestion();
+                questgame.newGameNumberRect();
+                questgame.newGameIndex();
+                questgame.newGameCheckTarget();
+
             }
         }
 

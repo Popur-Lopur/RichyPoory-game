@@ -25,6 +25,8 @@
 #include <QThread>
 
 #include "questgame.h"
+#include "numbergenerator.h"
+
 
 
 int main(int argc, char *argv[])
@@ -35,9 +37,15 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     qmlRegisterType<QuestGame>("QuestGame", 1, 0, "QuestGame");
+    qmlRegisterType<NumberGenerator>("NumberGenerator", 1, 0, "NumberGenerator");
 
+    NumberGenerator numbergenerator;
     QuestGame questgame;
+
     engine.rootContext()->setContextProperty("questgame", &questgame);
+    engine.rootContext()->setContextProperty("numbergenerator", &numbergenerator);
+
+
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
 

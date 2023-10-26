@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
+        numbergenerator.cpp \
         questgame.cpp
 
 RESOURCES += qml.qrc \
@@ -38,5 +39,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES +=
 
 HEADERS += \
+    numbergenerator.h \
     questgame.h \
 

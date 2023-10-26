@@ -15,5 +15,12 @@
         <file>PlayRectResult.qml</file>
         <file>RulesScreen.qml</file>
         <file>GameOverScreen.qml</file>
+        <file>PhonePanel.qml</file>
+        <file>PhoneIcon.qml</file>
+        <file>PhoneTelephone.qml</file>
+        <file>PhoneBtn.qml</file>
+        <file>PhoneMajorBtn.qml</file>
+        <file>PhoneInputNumber.qml</file>
+        <file>PhoneCorrectorBtn.qml</file>
     </qresource>
 </RCC>

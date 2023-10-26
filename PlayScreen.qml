@@ -48,5 +48,22 @@ Page {
 
     }
 
+    PhonePanel {
+        id: pnone_panel
+        anchors.top: play_help_panel.bottom
+        anchors.horizontalCenter: play_quest_label.horizontalCenter
+        anchors.margins: 5
+        visible: false
+
+        Connections {
+            target: play_help_panel
+            onVisibleChange: pnone_panel.visible = true
+        }
+
+//        Connections {
+//            target: pnone_panel
+//            onVisibleChange: pnone_panel.visible = false
+//        }
+    }
 }
 

@@ -9,5 +9,11 @@
         <file>images/win.gif</file>
         <file>images/fon.png</file>
         <file>images/gameover.gif</file>
+        <file>images/half.svg</file>
+        <file>images/krestik.svg</file>
+        <file>images/unknown.png</file>
+        <file>images/phoneCall.svg</file>
+        <file>images/phoneEnd.svg</file>
+        <file>images/deleteBtn.svg</file>
     </qresource>
 </RCC>

@@ -28,13 +28,12 @@ Rectangle {
         anchors.margins: 5
 
         onClicked: {
-            if(stackView.depth > 0) {
-                    stackView.pop();
-                }
+
             stackView.push("PlayScreen.qml");
             questgame.togetherMod();
             questgame.numberRect();
-            questgame.nextQuestion();
+            questgame.newGameIndex();
+
 
 
         }
@@ -50,6 +49,7 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.margins: 5
         onClicked: {
+            stackView.clear();
             stackView.push("RulesScreen.qml");
         }
     }

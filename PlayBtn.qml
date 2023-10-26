@@ -13,6 +13,11 @@ Button {
     property int targets
     property string textForTarget
     property string textForAnswer
+    property int halfNumber1
+    property int halfNumber2
+
+
+
 
     background: Rectangle {
         id: rect_play_btn
@@ -54,6 +59,7 @@ Button {
 
 
 
+
         }
         else {
             console.log("Значение не совпадает.")
@@ -62,5 +68,33 @@ Button {
 
         }
     }
+
+    Connections {
+        target: questgame
+        onNumber1Changed: {
+            play_btn.halfNumber1 = number1
+            console.log(play_btn.halfNumber1)
+            if(play_btn.checkTarget === play_btn.halfNumber1){
+                play_btn.textForAnswer = "---"
+            }
+            else {
+                console.log("50/50 не работает")
+            }
+        }
+        onNumber2Changed: {
+            play_btn.halfNumber2 = number2
+            console.log(play_btn.halfNumber2)
+            if(play_btn.checkTarget === play_btn.halfNumber2){
+                play_btn.textForAnswer = "---"
+            }
+            else {
+                console.log("50/50 не работает")
+            }
+        }
+    }
 }
+
+
+
+
 
